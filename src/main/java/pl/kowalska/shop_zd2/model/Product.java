@@ -1,10 +1,16 @@
 package pl.kowalska.shop_zd2.model;
 
-import java.math.BigDecimal;
 
 public class Product {
     private String name;
-    private BigDecimal price;
+    private Integer price;
+
+    public Product(String name, Integer price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Product(){}
 
     public String getName() {
         return name;
@@ -14,12 +20,20 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
 //Podstawową funkcjonalnością jaką posiada każdy sklep jest wariant „START”. Umożliwia on na dodawanie produktów do koszyka (produkt przechowuje nazwę i cenę),
