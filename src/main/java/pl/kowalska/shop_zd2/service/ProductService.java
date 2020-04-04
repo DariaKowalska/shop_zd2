@@ -1,10 +1,15 @@
 package pl.kowalska.shop_zd2.service;
 
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Service;
 import pl.kowalska.shop_zd2.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ProductService {
 
     private List<Product> productList;
@@ -18,14 +23,11 @@ public class ProductService {
         productList.add(product2);
         productList.add(product3);
     }
-
+@EventListener(ApplicationReadyEvent.class)
     public void showProduct(){
         productList.forEach(System.out::println);
     }
 
-    public static void main(String[] arg){
-        ProductService productService = new ProductService();
-        productService.showProduct();
-    }
+
 
 }
